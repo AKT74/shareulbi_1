@@ -1,5 +1,6 @@
 import type { NextConfig } from "next";
 
+const isProd = process.env.NODE_ENV === "production";
 const nextConfig: NextConfig = {
   /* config options here */
   reactCompiler: true,
@@ -9,9 +10,8 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
-
-  basePath: "/shareulbi_1",
-  assetPrefix: "/shareulbi_1/",
+  basePath: isProd ? "/shareulbi_1" : "",
+  assetPrefix: isProd ? "/shareulbi_1/" : "",
 };
 
 export default nextConfig;
